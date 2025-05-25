@@ -167,16 +167,17 @@ export const count = query({
       clerkId: identity.subject,
     });
     console.log(currentUser, identity.subject);
-    // if(!currentUser) {
-    // throw new ConvexError("User not found")
-    // }
+    if(currentUser) {
 
-    const requests = await ctx.db
-      .query("requests")
-      .withIndex("by_receiver", (q) => q.eq("receiver", currentUser._id))
-      .collect();
-    console.log(requests);
-    return requests.length;
+        const requests = await ctx.db
+        .query("requests")
+        .withIndex("by_receiver", (q) => q.eq("receiver", currentUser._id))
+        .collect();
+      console.log(requests);
+      return requests.length;
+    }
+     return 0
+
   },
 });
 

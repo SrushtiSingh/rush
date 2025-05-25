@@ -97,9 +97,9 @@ const AddFriendDialog = () => {
                     )}
                     />
                     <DialogFooter>
-                        <div>
-                         Send
-                        </div>
+                    <div className="cursor-pointer" onClick={form.handleSubmit(handleSubmit)}>
+                                Send
+                            </div>
                     </DialogFooter>
                     </form>
                     </Form>
@@ -109,3 +109,4 @@ const AddFriendDialog = () => {
 };
 
 export default AddFriendDialog;
+
