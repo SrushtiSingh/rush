@@ -21,11 +21,7 @@ const DMConversationItem = ({
   lastMessageSender,
 }: Props) => {
   return (
-    <Link
-      href={`/conversations/$
-    {id}`}
-      className="w-full"
-    >
+    <Link href={`/conversations/${id}`} className="w-full">
       <Card
         className="p-2 flex flex-row
         items-center gap-4 truncate"

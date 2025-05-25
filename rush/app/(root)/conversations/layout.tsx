@@ -15,7 +15,7 @@ const Conversationslayout = ({ children }: Props) => {
     <>
       <ItemList
         title="Conversations">{
-          conversations ? conversations.length === 0 ?
+          conversations ? ( conversations.length === 0 ?
             (
               <p className="w-full h-full flex items-center justify-center">
                 No conversations found
@@ -31,8 +31,8 @@ const Conversationslayout = ({ children }: Props) => {
                   lastMessageSender={conversations.lastMessage?.sender}
                 />
               )
-            ) : <Loader2 />
-        } 
+            )) : ( <Loader2 />
+        )}
       </ItemList>
       {children}
     </>
