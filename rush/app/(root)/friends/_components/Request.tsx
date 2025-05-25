@@ -8,6 +8,9 @@ import { Check, User, X } from "lucide-react";
 import React from "react";
 import { api } from "@/convex/_generated/api";
 import { deny } from "@/convex/request";
+import { toast } from "sonner";
+import { error } from "console";
+import { ConvexError } from "convex/values";
 type Props = {
   id: Id<"requests">;
   imageUrl: string;
@@ -45,12 +48,39 @@ const Request = ({ id, imageUrl, username, email }: Props) => {
       </div>
       <div className="flex items-center 
       gap-2">
-            <div>
+            <div onClick={() => {
+                acceptRequest({id})
+                .then(() => {
+                    toast.success("Friend request accepted");
+                })
+                .catch((error) => {
+                    toast.error(
+                        error instanceof
+                        ConvexError
+                        ? error.data
+                        : "Unexpected error occurre"
+                    );
+                });
+            }}>
                 <Check />
             </div>
-            <div>
+            <div onClick={() => {
+                denyRequest({id})
+                .then(() => {
+                    toast.success("Friend request denied");
+                })
+                .catch((error) => {
+                    toast.error(
+                        error instanceof
+                        ConvexError
+                        ? error.data
+                        : "Unexpected error occurre"
+                    );
+                });
+            }}>
 
-                 {/* TODO : Need to add on click here acc to the video at 2:03:13  */}
+
+                
                 <X className="h-4 w-4"/>
             </div>
         </div>

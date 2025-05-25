@@ -23,10 +23,10 @@ const ConvexClientProvider = ({
         <ClerkProvider>
         <ConvexProviderWithClerk useAuth=
         {useAuth} client={convex}>
-            {/* <Unauthenticated>
+            <Unauthenticated>
                     <SignInButton />
                 </Unauthenticated>
-                <Authenticated>
+                {/* <Authenticated>
                     <UserButton />
                     {children}
                 </Authenticated>

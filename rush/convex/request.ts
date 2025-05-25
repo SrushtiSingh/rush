@@ -136,7 +136,7 @@ export const get = query({
       .query("requests")
       .withIndex("by_receiver", (q) => q.eq("receiver", currentUser._id))
       .collect();
-
+    console.log("=======",requests)
     const requestsWithSender = await Promise.all(
       requests.map(async (request) => {
         const sender = await ctx.db.get(request.sender);
