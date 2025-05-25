@@ -1,12 +1,12 @@
 "use Client";
 
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { ThemeToggle } from "@/components/ui/ui/theme/theme-toggle";
 import { useNavigation } from "@/hooks/useNavigation";
 import { UserButton } from "@clerk/nextjs";
-import { Link } from "lucide-react";
+import { Badge, Link } from "lucide-react";
 import path from "path";
 
 
@@ -22,11 +22,16 @@ const DesktopNav = () => {
                 <Link href={path.href}>
                    <Tooltip>
                     <TooltipTrigger>
-                        <Button size="icon"
+                        <div>
                         variant={path.active ? "default" : "outline"}
-                        >
+                       
                             {path.icon}
-                        </Button>
+                        </div>
+                        {path.count ? <Badge
+                        className="absolute left-6 bottom-7 px-2">
+                            {path.count}
+                        </Badge>
+                            : null}
                     </TooltipTrigger>
                     <TooltipContent>
                         <p>{path.name}</p>

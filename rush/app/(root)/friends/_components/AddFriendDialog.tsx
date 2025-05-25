@@ -2,10 +2,10 @@
 
 import React from "react";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolver/zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, useForm } from "react-hook-form";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { UserPlus } from "lucide-react";
 import { useMutationState } from "@/hooks/useMutationState";
 import { api } from "@/convex/_generated/api";
@@ -57,12 +57,12 @@ const AddFriendDialog = () => {
   <Dialog>
     <Tooltip>
         <TooltipTrigger>
-            <Button size="icon"
-            variant="outline">
-                <DialogTrigger>
-                    <UserPlus />
-                </DialogTrigger>
-            </Button>
+        <div className="custom_button">
+ <DialogTrigger>
+ <UserPlus />
+</DialogTrigger>
+</div>
+            
         </TooltipTrigger>
         <TooltipContent>
             <p>Add Friend</p>
@@ -97,10 +97,9 @@ const AddFriendDialog = () => {
                     )}
                     />
                     <DialogFooter>
-                        <Button disabled={false}
-                        type="submit">
+                        <div>
                          Send
-                        </Button>
+                        </div>
                     </DialogFooter>
                     </form>
                     </Form>
